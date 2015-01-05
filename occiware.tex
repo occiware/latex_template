@@ -1,0 +1,54 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage{lipsum}
+\usepackage[T1]{fontenc}
+\usepackage[frenchb]{babel}
+\usepackage{occiware}
+
+\begin{document}
+
+\title{OCCIware delivery template}
+
+\author{Jean Parpaillon}
+
+%\thanks{Thank you to ...}
+
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+  Le document est un exemple d'utilisation du package \LaTeX
+  ``occiware'' et des macros fournies. Ce package doit permettre de
+  rédiger les rapports (``livrables'') du projet \occiware.
+\end{abstract}
+
+\chapter{Le package \LaTeX ``occiware''}
+\label{chap:one}
+
+\section{Utilisation}
+\label{sec:utilisation}
+
+Le fichier \texttt{occiware.sty} doit être présent dans le chemin de
+compilation du document
+
+\section{Macros}
+\label{sec:macros}
+
+\subsection{Trigrammes des partenaires}
+
+\begin{itemize}
+\item \verb+\OPW+ : \OPW
+\item \verb+\AON+ : \AON
+\item \verb+\CSR+ : \CSR
+\item \verb+\TSP+ : \TSP
+\item \verb+\INR+ : \INR
+\item \verb+\LNG+ : \LNG
+\item \verb+\OBO+ : \OBO
+\item \verb+\OWC+ : \OWC
+\item \verb+\PNQ+ : \PNQ
+\item \verb+\UJF+ : \UJF
+\end{itemize}
+
+\include{subs/chapter-two}
+
+\end{document}
