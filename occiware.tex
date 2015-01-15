@@ -1,8 +1,15 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,11pt,twoside]{report}
 \usepackage{lipsum}
 \usepackage[T1]{fontenc}
 \usepackage[frenchb]{babel}
 \usepackage{occiware}
+
+\owdelivnr{D0.0.1}
+\owexpected{2015/05/31}
+\owdelivered{\today}
+%\owstatus{Draft}
+%\ownature{Public}
+\owversion{0.1}
 
 \begin{document}
 
@@ -29,10 +36,27 @@
 \label{sec:utilisation}
 
 Le fichier \texttt{occiware.sty} doit être présent dans le chemin de
-compilation du document
+compilation du document.
+
+Inclure le package dans le document avec la commande:
+
+\begin{verbatim}
+\usepackage{occiware}
+\end{verbatim}
 
 \section{Macros}
 \label{sec:macros}
+
+\subsection{Macros à définir}
+
+\begin{itemize}
+\item \verb+\owdelivnr+ : numéro du livrable (ex.: 2.1.1)
+\item \verb+\owexpected+ : date attendue du livrable
+\item \verb+\owdelivered+ : date de livraison (défaut: \verb+\today+)
+\item \verb+\owstatus+ : \textit{draft} | \textit{final} (défaut: \textit{draft})
+\item \verb+\ownature+ : \textit{public} | \textit{private} (défaut: \textit{public})
+\item \verb+\owversion+ : version du document
+\end{itemize}
 
 \subsection{Trigrammes des partenaires}
 

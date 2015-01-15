@@ -1,8 +1,140 @@
 \NeedsTeXFormat{LaTeX2e}
 
 \RequirePackage[utf8]{inputenc}
+\RequirePackage{graphicx}
  
 \ProvidesPackage{occiware}[2015/01/05 OCCIware reports specific commands, V1.0]
+
+%
+% Macros
+%
+\def\@owdelivnr{<deliv. nr to set>}
+\newcommand{\owdelivnr}[1]{\def\@owdelivnr{#1}}
+
+\def\@owexpected{<exp. date to set>}
+\newcommand{\owexpected}[1]{\def\@owexpected{#1}}
+
+\def\@owdelivered{\today}
+\newcommand{\owdelivered}[1]{\def\@owdelivered{#1}}
+
+\def\@owstatus{draft}
+\newcommand{\owstatus}[1]{\def\@owstatus{#1}}
+
+\def\@ownature{public}
+\newcommand{\ownature}[1]{\def\@ownature{#1}}
+
+\def\@owversion{<deliv. version to set>}
+\newcommand{\owversion}[1]{\def\@owversion{#1}}
+
+%
+% Translations
+%
+\newcommand{\owmldoc}{
+  \iflanguage{english}{Document}
+  {\iflanguage{french}{Document}{}
+  }}
+\newcommand{\owmlexpected}{
+  \iflanguage{english}{Expected}
+  {\iflanguage{french}{Prévu}{}
+  }}
+\newcommand{\owmldelivered}{
+  \iflanguage{english}{Delivered}
+  {\iflanguage{french}{Livré}{}
+  }}
+\newcommand{\owmlstatus}{
+  \iflanguage{english}{Status}
+  {\iflanguage{french}{Statut}{}
+  }}
+\newcommand{\owmlnature}{
+  \iflanguage{english}{Nature}
+  {\iflanguage{french}{Nature}{}
+  }}
+\newcommand{\owmlversion}{
+  \iflanguage{english}{Version}
+  {\iflanguage{french}{Version}{}
+  }}
+\newcommand{\owmltitle}{
+  \iflanguage{english}{Title}
+  {\iflanguage{french}{Titre}{}
+  }}
+\newcommand{\owmlauthor}{
+ \iflanguage{english}{Author(s)}
+ {\iflanguage{french}{Auteur(s)}{}
+ }}
+
+
+%
+% Page, headers settings
+%
+
+\RequirePackage{fullpage}
+\RequirePackage{fancyhdr}
+
+\pagestyle{fancyplain}
+\setlength{\headheight}{42pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\fancyhf{}
+
+\fancyhead[LE,RO]{
+ \includegraphics[width=.2\linewidth]{img/occiware-logo}
+}
+\fancyhead[RE,LO]{
+ \small
+ \begin{tabular}{rlrl}
+   \textbf{\owmldoc}         & \@owdelivnr         & \textbf{\owmlstatus}  & \@owstatus \\
+   \textbf{\owmlexpected}    & \@owexpected        & \textbf{\owmlnature}  & \@ownature \\
+   \textbf{\owmldelivered}   & \@owdelivered       & \textbf{\owmlversion} & \@owversion \\
+ \end{tabular}
+ \normalsize
+}
+
+%
+% Redefinitions
+%
+\renewcommand{\maketitle}{
+ \begin{titlepage}%
+   \includegraphics[width=.4\linewidth]{img/occiware-logo}
+
+   \let\footnotesize\small
+   \let\footnoterule\relax
+   \let \footnote \thanks
+   \null\vfil
+   \vskip 60\p@
+   \begin{center}%
+     {\Large
+       \begin{tabular}{rl}
+         \textbf{\owmltitle}   & \@owdelivnr - \@title  \\
+         \textbf{\owmlauthor}  & \@author \\
+       \end{tabular}
+     }
+
+     \vskip 3em%
+
+     \begin{tabular}{rlrl}
+       \textbf{\owmldoc}         & \@owdelivnr         & \textbf{\owmlstatus}  & \@owstatus \\
+       \textbf{\owmlexpected}    & \@owexpected        & \textbf{\owmlnature}  & \@ownature \\
+       \textbf{\owmldelivered}   & \@owdelivered       & \textbf{\owmlversion} & \@owversion \\
+     \end{tabular}
+   \end{center}\par
+   \@thanks
+   \vfil\null
+ \end{titlepage}%
+ \setcounter{footnote}{0}%
+ \global\let\thanks\relax
+ \global\let\maketitle\relax
+ \global\let\@thanks\@empty
+ \global\let\@author\@empty
+ \global\let\@date\@empty
+ \global\let\@title\@empty
+ \global\let\title\relax
+ \global\let\author\relax
+ \global\let\date\relax
+ \global\let\and\relax
+}
+
+%
+% Commands
+%
  
 %
 % Abbrevations, common names
