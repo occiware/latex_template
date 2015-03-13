@@ -1,5 +1,6 @@
 \documentclass[a4paper,11pt,twoside]{report}
 \usepackage{lipsum}
+\usepackage{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage[frenchb]{babel}
 \usepackage{occiware}
@@ -73,6 +74,16 @@ Inclure le package dans le document avec la commande:
 \item \verb+\UJF+ : \UJF
 \end{itemize}
 
+\subsection{Citations}
+
+\begin{itemize}
+\item \cite{occi-core-12}
+\item \cite{occi-http-rendering}
+\end{itemize}
+
 \include{subs/chapter-two}
+
+\bibliographystyle{ieeetr}
+\bibliography{occiware}
 
 \end{document}
