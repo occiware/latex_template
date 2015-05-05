@@ -2,7 +2,8 @@
 \usepackage{lipsum}
 \usepackage{hyperref}
 \usepackage[T1]{fontenc}
-\usepackage[frenchb]{babel}
+%\usepackage[frenchb]{babel}
+%\usepackage[french,english]{babel}
 \usepackage{occiware}
 
 \owdelivnr{D0.0.1}
@@ -13,6 +14,7 @@
 \owversion{0.1}
 
 \begin{document}
+\selectlanguage{french}
 
 \title{OCCIware delivery template}
 
@@ -43,6 +45,19 @@ Inclure le package dans le document avec la commande:
 
 \begin{verbatim}
 \usepackage{occiware}
+\end{verbatim}
+
+Les langues disponibles pour le template sont:
+\begin{itemize}
+\item français,
+\item anglais (défaut)
+\end{itemize}
+
+Pour sélectionner la langue du document, inclure \emph{après}
+  \verb+\begin{document}+ la commande:
+
+\begin{verbatim}
+\selectlanguage{french}
 \end{verbatim}
 
 \section{Macros}
