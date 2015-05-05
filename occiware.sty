@@ -2,6 +2,8 @@
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{graphicx}
+\RequirePackage{tabularx}
+\RequirePackage{etoolbox}
 \RequirePackage[french,english]{babel}
  
 \ProvidesPackage{occiware}[2015/01/05 OCCIware reports specific commands, V1.0]
@@ -93,33 +95,120 @@
 % Redefinitions
 %
 \renewcommand{\maketitle}{
- \begin{titlepage}%
-   \includegraphics[width=.4\linewidth]{occiware-logo}
+  \begin{titlepage}%
+    \begin{center}
+      \begin{minipage}[t]{.6\linewidth}
+        \centering
+
+        {\Large
+          \includegraphics[width=.8\linewidth]{occiware-logo}
+          
+          \vskip 3em%
+        
+          {\sffamily
+            {\bfseries
+              \iflanguage{french}{ 
+                Un cadre formel et outillé pour la gestion de toute ressource
+                en nuage
+              }{
+                A Formal and Tooled Framework for Managing Everything as a
+                Service        
+              }
+              
+              \vskip 1em%
+              
+              {\large \itshape
+                www.occiware.org
+              }
+            }
+          }          
+        }
+      \end{minipage}
+
+      \vskip 4cm%
+
+      {\Huge \sffamily 
+        \owmldoc \@owdelivnr
+
+        \vskip 2em%
+
+        {\bfseries
+          \@title
+        }
+      }
+
+      \null\vfill
+
+      {\sffamily
+        \iflanguage{french}{
+          OCCIware est un projet soutenu par le \emph{Fond national pour
+            la Société Numérique} (FSN) et par les pôles de
+          compétitivité \emph{Systematic}, \emph{Minalogic},
+          \emph{PICOM}, \emph{Images \& Réseaux} et \emph{Solutions
+            Communicantes Sécurisées}.
+        }{
+          OCCIware project is supported by \emph{Fond national pour la
+            Société Numérique} (FSN) and the following competitive
+          clusters \emph{Systematic}, \emph{Minalogic}, \emph{PICOM},
+          \emph{Images \& Réseaux} et \emph{Solutions Communicantes
+            Sécurisées}.
+        }   
+      }
+    \end{center}
 
    \let\footnotesize\small
    \let\footnoterule\relax
    \let \footnote \thanks
    \null\vfil
    \vskip 60\p@
-   \begin{center}%
-     {\Large
-       \begin{tabular}{rl}
-         \textbf{\owmltitle}   & \@owdelivnr - \@title  \\
-         \textbf{\owmlauthor}  & \@author \\
-       \end{tabular}
-     }
+ \end{titlepage}
 
-     \vskip 3em%
+ \newpage
 
-     \begin{tabular}{rlrl}
-       \textbf{\owmldoc}         & \@owdelivnr         & \textbf{\owmlstatus}  & \@owstatus \\
-       \textbf{\owmlexpected}    & \@owexpected        & \textbf{\owmlnature}  & \@ownature \\
-       \textbf{\owmldelivered}   & \@owdelivered       & \textbf{\owmlversion} & \@owversion \\
-     \end{tabular}
-   \end{center}\par
-   \@thanks
-   \vfil\null
+ \begin{titlepage}
+   \sffamily \large
+
+   \begin{tabularx}{\linewidth}{|p{5cm}cX|} \hline
+     {\bfseries \iflanguage{french}{Projet num.}{Project nr}} & : & \\
+     {\bfseries \iflanguage{french}{Nom du projet}{Project title}} & : & OCCIware \\
+     \hline
+   \end{tabularx}
+
+   \vskip 2em%
+
+   \begin{tabularx}{\linewidth}{|p{5cm}cX|} \hline
+     {\bfseries \owmldoc} & : & \\
+     {\bfseries \iflanguage{french}{Titre}{Title}} & : & \@title \\
+     {\bfseries \iflanguage{french}{Nature}{Type}} & : & ... \\
+     {\bfseries \iflanguage{french}{Niveau de dissémination}{Dissemination level}} & : & ... \\
+     {\bfseries \iflanguage{french}{License}{License}} & : & ... \\
+     {\bfseries \iflanguage{french}{Version}{Version}} & : & ... \\
+     {\bfseries \iflanguage{french}{Date de diffusion}{Diffusion Date}} & : & ... \\
+     {\bfseries \iflanguage{french}{Sous-Projet}{Sub-project}} & : & ... \\
+     {\bfseries \iflanguage{french}{Éditeur(s)}{Editor(s)}} & : & ... \\
+     {\bfseries \iflanguage{french}{Auteur(s)}{Author(s)}} & : & ... \\
+     {\bfseries \iflanguage{french}{Réviseur(s)}{Auditor(s)}} & : & ... \\     
+     \hline
+   \end{tabularx}
+
+   \vskip 2em%
+
+   \begin{tabularx}{\linewidth}{|X|} \hline
+     {\bfseries \iflanguage{french}{Résumé}{Abstract}} \\
+     ... \\
+     \hline
+   \end{tabularx}
+
+   \vskip 2em%
+
+   \begin{tabularx}{\linewidth}{|X|} \hline
+     {\bfseries \iflanguage{french}{Mots-clés}{Tags}} \\
+     ... \\
+     \hline
+   \end{tabularx}
+
  \end{titlepage}%
+
  \setcounter{footnote}{0}%
  \global\let\thanks\relax
  \global\let\maketitle\relax
